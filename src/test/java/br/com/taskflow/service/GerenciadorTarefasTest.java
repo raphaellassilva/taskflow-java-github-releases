@@ -57,4 +57,13 @@ class GerenciadorTarefasTest {
         assertEquals(1, gerenciador.contarPorStatus(StatusTarefa.EM_ANDAMENTO));
         assertEquals(0, gerenciador.contarPorStatus(StatusTarefa.CONCLUIDA));
     }
+
+    @Test
+    void deveImpedirAlteracaoDiretaDaListaDeTarefas() {
+        gerenciador.criarTarefa("Estudar Git", "Praticar comandos", Prioridade.MEDIA);
+
+        var tarefas = gerenciador.listarTarefas();
+
+        assertThrows(UnsupportedOperationException.class, tarefas::clear);
+}
 }
