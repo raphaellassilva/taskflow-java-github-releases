@@ -22,7 +22,7 @@ class GerenciadorTarefasTest {
     void deveCadastrarTarefaComStatusPendente() {
         Tarefa tarefa = gerenciador.criarTarefa("Preparar apresentação", "Revisar slides", Prioridade.ALTA);
 
-        assertEquals(999, tarefa.getId());
+        assertEquals(1, tarefa.getId());
         assertEquals("Preparar apresentação", tarefa.getTitulo());
         assertEquals(StatusTarefa.PENDENTE, tarefa.getStatus());
     }
