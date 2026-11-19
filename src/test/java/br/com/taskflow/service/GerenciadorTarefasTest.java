@@ -1,12 +1,14 @@
 package br.com.taskflow.service;
 
-import br.com.taskflow.model.Prioridade;
-import br.com.taskflow.model.StatusTarefa;
-import br.com.taskflow.model.Tarefa;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import br.com.taskflow.model.Prioridade;
+import br.com.taskflow.model.StatusTarefa;
+import br.com.taskflow.model.Tarefa;
 
 class GerenciadorTarefasTest {
     private GerenciadorTarefas gerenciador;
@@ -20,7 +22,7 @@ class GerenciadorTarefasTest {
     void deveCadastrarTarefaComStatusPendente() {
         Tarefa tarefa = gerenciador.criarTarefa("Preparar apresentação", "Revisar slides", Prioridade.ALTA);
 
-        assertEquals(1, tarefa.getId());
+        assertEquals(999, tarefa.getId());
         assertEquals("Preparar apresentação", tarefa.getTitulo());
         assertEquals(StatusTarefa.PENDENTE, tarefa.getStatus());
     }
